@@ -1,0 +1,14 @@
+<svg width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Jar Body -->
+  <rect x="50" y="80" width="200" height="280" rx="0" ry="20" fill="rgba(255,255,255,0.1)" stroke="rgba(0,0,0,0.8)" stroke-width="3"/>
+  
+  <!-- Jar Neck -->
+  <rect x="80" y="40" width="140" height="40" rx="8" ry="8" fill="rgba(255,255,255,0.1)" stroke="rgba(0,0,0,0.8)" stroke-width="3"/>
+  
+  <!-- Threading lines on neck -->
+  <line x1="90" y1="55" x2="210" y2="55" stroke="rgba(0,0,0,0.6)" stroke-width="2"/>
+  <line x1="90" y1="65" x2="210" y2="65" stroke="rgba(0,0,0,0.6)" stroke-width="2"/>
+  
+  <!-- Jar opening/rim -->
+  <rect x="85" y="35" width="130" height="10" rx="5" ry="5" fill="rgba(255,255,255,0.1)" stroke="rgba(0,0,0,0.8)" stroke-width="3"/>
+</svg>

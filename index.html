@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Character Callouts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Share Your Character Callouts</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#submit" class="nav-link">Submit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#all-callouts" class="nav-link">All</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#recent" class="nav-link">Recent</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#popular" class="nav-link">Popular</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Who will you shoutout today?</h1>
+            <p>Tell the world about the awesome people in your life! Share what makes them special.</p>
+            <div class="hero-buttons">
+                <a href="#submit" class="btn btn-primary">Write a Callout</a>
+                <a href="#all-callouts" class="btn btn-secondary">See All Callouts</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="jar-container">
+                <div class="word-cloud" id="wordCloud">
+                    <!-- Word cloud will be generated here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Callout Form -->
+    <section id="submit" class="submit-section">
+        <div class="container">
+            <h2>How To Write A Character Callout</h2>
+            <p class="form-instructions">A Character-Callout is a fun way to tell everyone about someone awesome!</p>
+            <p class="form-instructions">Tell us about someone amazing! Fill out the form below to share what makes them special.</p>
+            <form id="calloutForm" class="callout-form">
+                <div class="form-group">
+                    <label for="title">Who is this about? (Give it a fun title!)</label>
+                    <input type="text" id="title" name="title" required placeholder="Like: My Awesome Guide Mrs. Johnson">
+                </div>
+                
+                <div class="form-group">
+                    <label for="madlibs">Fill in the blanks: "I am giving a Character-Callout to __ because __"</label>
+                    <div class="madlibs-input">
+                        <span>I am giving a Character-Callout to</span>
+                        <input type="text" id="person" name="person" required placeholder="their name">
+                        <span>because</span>
+                        <input type="text" id="reason" name="reason" required placeholder="what they did that was awesome">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="categories">What words describe them? (I call that __)</label>
+                    <div class="categories-input">
+                        <span>I call that</span>
+                        <select id="category1" name="category1" required>
+                            <option value="">Choose a character trait...</option>
+                            <option value="Accepting">Accepting</option>
+                            <option value="Adventurous">Adventurous</option>
+                            <option value="Ambitious">Ambitious</option>
+                            <option value="Articulate">Articulate</option>
+                            <option value="Artistic">Artistic</option>
+                            <option value="Balanced">Balanced</option>
+                            <option value="Brave">Brave</option>
+                            <option value="Calm">Calm</option>
+                            <option value="Caring">Caring</option>
+                            <option value="Cheerful">Cheerful</option>
+                            <option value="Committed">Committed</option>
+                            <option value="Compassionate">Compassionate</option>
+                            <option value="Confident">Confident</option>
+                            <option value="Considerate">Considerate</option>
+                            <option value="Cooperative">Cooperative</option>
+                            <option value="Courageous">Courageous</option>
+                            <option value="Creative">Creative</option>
+                            <option value="Curious">Curious</option>
+                            <option value="Dedicated">Dedicated</option>
+                            <option value="Diligent">Diligent</option>
+                            <option value="Driven">Driven</option>
+                            <option value="Dynamic">Dynamic</option>
+                            <option value="Eager">Eager</option>
+                            <option value="Easy-going">Easy-going</option>
+                            <option value="Efficient">Efficient</option>
+                            <option value="Empathetic">Empathetic</option>
+                            <option value="Encouraging">Encouraging</option>
+                            <option value="Energetic">Energetic</option>
+                            <option value="Enthusiastic">Enthusiastic</option>
+                            <option value="Friendly">Friendly</option>
+                            <option value="Generous">Generous</option>
+                            <option value="Gentle">Gentle</option>
+                            <option value="Genuine">Genuine</option>
+                            <option value="Helpful">Helpful</option>
+                            <option value="Honest">Honest</option>
+                            <option value="Humble">Humble</option>
+                            <option value="Imaginative">Imaginative</option>
+                            <option value="Inclusive">Inclusive</option>
+                            <option value="Independent">Independent</option>
+                            <option value="Innovative">Innovative</option>
+                            <option value="Inquisitive">Inquisitive</option>
+                            <option value="Insightful">Insightful</option>
+                            <option value="Inspired">Inspired</option>
+                            <option value="Integrity">Integrity</option>
+                            <option value="Inventive">Inventive</option>
+                            <option value="Joyful">Joyful</option>
+                            <option value="Kind">Kind</option>
+                            <option value="Leadership">Leadership</option>
+                            <option value="Loving">Loving</option>
+                            <option value="Loyal">Loyal</option>
+                            <option value="Motivated">Motivated</option>
+                            <option value="Open-minded">Open-minded</option>
+                            <option value="Optimistic">Optimistic</option>
+                            <option value="Original">Original</option>
+                            <option value="Patient">Patient</option>
+                            <option value="Peaceful">Peaceful</option>
+                            <option value="Perseverant">Perseverant</option>
+                            <option value="Positive">Positive</option>
+                            <option value="Proactive">Proactive</option>
+                            <option value="Purposeful">Purposeful</option>
+                            <option value="Receptive">Receptive</option>
+                            <option value="Reflective">Reflective</option>
+                            <option value="Resourceful">Resourceful</option>
+                            <option value="Respectful">Respectful</option>
+                            <option value="Responsible">Responsible</option>
+                            <option value="Self-Assured">Self-Assured</option>
+                            <option value="Self-Disciplined">Self-Disciplined</option>
+                            <option value="Selfless">Selfless</option>
+                            <option value="Self-Motivated">Self-Motivated</option>
+                            <option value="Sensitive">Sensitive</option>
+                            <option value="Sincere">Sincere</option>
+                            <option value="Supportive">Supportive</option>
+                            <option value="Thoughtful">Thoughtful</option>
+                            <option value="Trustworthy">Trustworthy</option>
+                            <option value="Wise">Wise</option>
+                        </select>
+                        <span id="and-text" style="display: none;">and</span>
+                        <select id="category2" name="category2">
+                            <option value="">Choose another trait (optional)...</option>
+                            <option value="Accepting">Accepting</option>
+                            <option value="Adventurous">Adventurous</option>
+                            <option value="Ambitious">Ambitious</option>
+                            <option value="Articulate">Articulate</option>
+                            <option value="Artistic">Artistic</option>
+                            <option value="Balanced">Balanced</option>
+                            <option value="Brave">Brave</option>
+                            <option value="Calm">Calm</option>
+                            <option value="Caring">Caring</option>
+                            <option value="Cheerful">Cheerful</option>
+                            <option value="Committed">Committed</option>
+                            <option value="Compassionate">Compassionate</option>
+                            <option value="Confident">Confident</option>
+                            <option value="Considerate">Considerate</option>
+                            <option value="Cooperative">Cooperative</option>
+                            <option value="Courageous">Courageous</option>
+                            <option value="Creative">Creative</option>
+                            <option value="Curious">Curious</option>
+                            <option value="Dedicated">Dedicated</option>
+                            <option value="Diligent">Diligent</option>
+                            <option value="Driven">Driven</option>
+                            <option value="Dynamic">Dynamic</option>
+                            <option value="Eager">Eager</option>
+                            <option value="Easy-going">Easy-going</option>
+                            <option value="Efficient">Efficient</option>
+                            <option value="Empathetic">Empathetic</option>
+                            <option value="Encouraging">Encouraging</option>
+                            <option value="Energetic">Energetic</option>
+                            <option value="Enthusiastic">Enthusiastic</option>
+                            <option value="Friendly">Friendly</option>
+                            <option value="Generous">Generous</option>
+                            <option value="Gentle">Gentle</option>
+                            <option value="Genuine">Genuine</option>
+                            <option value="Helpful">Helpful</option>
+                            <option value="Honest">Honest</option>
+                            <option value="Humble">Humble</option>
+                            <option value="Imaginative">Imaginative</option>
+                            <option value="Inclusive">Inclusive</option>
+                            <option value="Independent">Independent</option>
+                            <option value="Innovative">Innovative</option>
+                            <option value="Inquisitive">Inquisitive</option>
+                            <option value="Insightful">Insightful</option>
+                            <option value="Inspired">Inspired</option>
+                            <option value="Integrity">Integrity</option>
+                            <option value="Inventive">Inventive</option>
+                            <option value="Joyful">Joyful</option>
+                            <option value="Kind">Kind</option>
+                            <option value="Leadership">Leadership</option>
+                            <option value="Loving">Loving</option>
+                            <option value="Loyal">Loyal</option>
+                            <option value="Motivated">Motivated</option>
+                            <option value="Open-minded">Open-minded</option>
+                            <option value="Optimistic">Optimistic</option>
+                            <option value="Original">Original</option>
+                            <option value="Patient">Patient</option>
+                            <option value="Peaceful">Peaceful</option>
+                            <option value="Perseverant">Perseverant</option>
+                            <option value="Positive">Positive</option>
+                            <option value="Proactive">Proactive</option>
+                            <option value="Purposeful">Purposeful</option>
+                            <option value="Receptive">Receptive</option>
+                            <option value="Reflective">Reflective</option>
+                            <option value="Resourceful">Resourceful</option>
+                            <option value="Respectful">Respectful</option>
+                            <option value="Responsible">Responsible</option>
+                            <option value="Self-Assured">Self-Assured</option>
+                            <option value="Self-Disciplined">Self-Disciplined</option>
+                            <option value="Selfless">Selfless</option>
+                            <option value="Self-Motivated">Self-Motivated</option>
+                            <option value="Sensitive">Sensitive</option>
+                            <option value="Sincere">Sincere</option>
+                            <option value="Supportive">Supportive</option>
+                            <option value="Thoughtful">Thoughtful</option>
+                            <option value="Trustworthy">Trustworthy</option>
+                            <option value="Wise">Wise</option>
+                        </select>
+                    </div>
+                    <button type="button" id="addCategory" class="btn-add-category">+ Add another trait</button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="submitter">Your name (so they know who wrote this!)</label>
+                    <input type="text" id="submitter" name="submitter" required placeholder="Your name">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Share My Callout!</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- All Callouts Section -->
+    <section id="all-callouts" class="callouts-section">
+        <div class="container">
+            <h2>All Character-Callouts</h2>
+            <div class="callouts-grid" id="calloutsGrid">
+                <!-- Callouts will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Callouts Section -->
+    <section id="recent" class="recent-section">
+        <div class="container">
+            <h2>Top 5 Most Recent</h2>
+            <div class="callouts-list" id="recentCallouts">
+                <!-- Recent callouts will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Callouts Section -->
+    <section id="popular" class="popular-section">
+        <div class="container">
+            <h2>Top 5 Most Viewed</h2>
+            <div class="callouts-list" id="popularCallouts">
+                <!-- Popular callouts will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2>Questions & Answers</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is a Character-Callout?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A Character-Callout is a fun way to tell everyone about someone awesome! It's like writing a nice note about what makes a person special.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I write a Character-Callout?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It's easy! Just fill out the form on our "Write a Callout" page. Tell us who the person is, why they're awesome, and what words describe them best.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I use more than one word to describe someone?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can add as many words as you want. Just click the "+ Add another word" button to include more describing words.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Will people know I wrote the callout?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We include your name so the person knows who wrote the nice things about them. This makes it extra special!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What makes a callout popular?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Popular callouts are the ones that lots of people have read and liked. The more people who see your callout, the more popular it becomes!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Acton Character Callouts</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    
+                    <h3>How It Works</h3>
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+                    
+                    <h3>Why Character-Callouts Matter</h3>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>1,000+</h3>
+                        <p>Character-Callouts Submitted</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Students Participating</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Schools Using Our Platform</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Positive Impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Acton Character Callouts</h3>
+                    <p>Celebrating the amazing people in our lives, one callout at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#submit">Submit</a></li>
+                        <li><a href="#all-callouts">All</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.actonacademyfl.com/" target="_blank" title="Visit Acton Academy Fort Lauderdale Website"><i class="fas fa-globe"></i></a>
+                        <a href="https://www.facebook.com/Acton-Academy-Fort-Lauderdale-108093534778868" target="_blank" title="Follow Acton Academy Fort Lauderdale on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/actonacademyfl/" target="_blank" title="Follow Acton Academy Fort Lauderdale on Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Acton Academy Fort Lauderdale. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
