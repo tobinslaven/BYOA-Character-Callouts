@@ -13,6 +13,8 @@ class CharacterCalloutsApp {
         this.generateWordCloud();
         this.setupFAQ();
         this.setupNavigation();
+        this.setupToggle();
+        this.currentView = 'popular'; // Default view
     }
 
     setupEventListeners() {
@@ -68,20 +70,48 @@ class CharacterCalloutsApp {
         document.querySelectorAll('a[href="#all-callouts"]').forEach(link => {
             link.addEventListener('click', () => {
                 this.clearFilter();
+                this.switchView('popular'); // Default to Most Loved
             });
         });
 
         document.querySelectorAll('a[href="#recent"]').forEach(link => {
             link.addEventListener('click', () => {
                 this.clearFilter();
+                this.switchView('recent');
             });
         });
 
         document.querySelectorAll('a[href="#popular"]').forEach(link => {
             link.addEventListener('click', () => {
                 this.clearFilter();
+                this.switchView('popular');
             });
         });
+    }
+
+    setupToggle() {
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const view = btn.getAttribute('data-view');
+                this.switchView(view);
+            });
+        });
+    }
+
+    switchView(view) {
+        this.currentView = view;
+        
+        // Update active button
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-view') === view) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Refresh display
+        this.displayCallouts();
     }
 
     handleFormSubmit(e) {
@@ -231,16 +261,42 @@ class CharacterCalloutsApp {
     // Contact form handling removed - now using About page
 
     loadCallouts() {
-        this.displayAllCallouts();
-        this.displayRecentCallouts();
-        this.displayPopularCallouts();
+        this.displayCallouts();
     }
 
-    displayAllCallouts() {
+    displayCallouts() {
         const grid = document.getElementById('calloutsGrid');
         if (!grid) return;
 
-        const calloutsToShow = this.filteredCallouts ? this.getFilteredCallouts() : this.callouts;
+        let calloutsToShow;
+        
+        // Determine which callouts to show based on current view
+        if (this.filteredCallouts) {
+            calloutsToShow = this.getFilteredCallouts();
+        } else {
+            switch(this.currentView) {
+                case 'recent':
+                    calloutsToShow = [...this.callouts].sort((a, b) => 
+                        new Date(b.date) - new Date(a.date)
+                    );
+                    break;
+                case 'popular':
+                    calloutsToShow = [...this.callouts].sort((a, b) => {
+                        const aLikes = a.likes || 0;
+                        const bLikes = b.likes || 0;
+                        const aViews = a.views || 0;
+                        const bViews = b.views || 0;
+                        
+                        // Sort by likes first, then by views as tiebreaker
+                        if (aLikes !== bLikes) return bLikes - aLikes;
+                        return bViews - aViews;
+                    });
+                    break;
+                case 'all':
+                default:
+                    calloutsToShow = this.callouts;
+            }
+        }
 
         if (calloutsToShow.length === 0) {
             if (this.filteredCallouts) {
@@ -261,32 +317,6 @@ class CharacterCalloutsApp {
         }
 
         grid.innerHTML = filterIndicator + calloutsToShow.map(callout => this.createCalloutCard(callout)).join('');
-    }
-
-    displayRecentCallouts() {
-        const container = document.getElementById('recentCallouts');
-        if (!container) return;
-
-        const recent = this.callouts.slice(0, 5);
-        container.innerHTML = recent.map(callout => this.createCalloutCard(callout, true)).join('');
-    }
-
-    displayPopularCallouts() {
-        const container = document.getElementById('popularCallouts');
-        if (!container) return;
-
-        const popular = [...this.callouts].sort((a, b) => {
-            const aLikes = a.likes || 0;
-            const bLikes = b.likes || 0;
-            const aViews = a.views || 0;
-            const bViews = b.views || 0;
-            
-            // Sort by likes first, then by views as tiebreaker
-            if (aLikes !== bLikes) return bLikes - aLikes;
-            return bViews - aViews;
-        }).slice(0, 5);
-        
-        container.innerHTML = popular.map(callout => this.createCalloutCard(callout, true)).join('');
     }
 
     createCalloutCard(callout, isList = false) {
@@ -496,7 +526,7 @@ class CharacterCalloutsApp {
 
     filterByWord(word) {
         this.filteredCallouts = word;
-        this.displayAllCallouts();
+        this.displayCallouts();
         
         // Scroll to the callouts section
         document.getElementById('all-callouts').scrollIntoView({ behavior: 'smooth' });
@@ -517,7 +547,7 @@ class CharacterCalloutsApp {
 
     clearFilter() {
         this.filteredCallouts = null;
-        this.displayAllCallouts();
+        this.displayCallouts();
         this.showNotification('Showing all callouts', 'info');
     }
 
@@ -550,9 +580,7 @@ class CharacterCalloutsApp {
         localStorage.setItem('characterCallouts', JSON.stringify(this.callouts));
 
         // Update display
-        this.displayAllCallouts();
-        this.displayRecentCallouts();
-        this.displayPopularCallouts();
+        this.displayCallouts();
     }
 
     isCalloutLiked(calloutId) {

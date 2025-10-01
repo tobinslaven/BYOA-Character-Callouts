@@ -68,8 +68,7 @@
     <section id="submit" class="submit-section">
         <div class="container">
             <h2>How To Write A Character Callout</h2>
-            <p class="form-instructions">A Character-Callout is a fun way to tell everyone about someone awesome!</p>
-            <p class="form-instructions">Tell us about someone amazing! Fill out the form below to share what makes them special.</p>
+            <p class="form-instructions">Tell us about someone amazing! Fill out the form below to share what makes them special. A Character-Callout is a fun way to tell everyone about someone awesome!</p>
             <form id="calloutForm" class="callout-form">
                 <div class="form-group">
                     <label for="title">Who is this about? (Give it a fun title!)</label>
@@ -261,35 +260,27 @@
         </div>
     </section>
 
-    <!-- All Callouts Section -->
+    <!-- Character Callouts Section with Toggle -->
     <section id="all-callouts" class="callouts-section">
         <div class="container">
-            <h2>All Character-Callouts</h2>
+            <h2>Character Callouts</h2>
+            
+            <!-- Toggle Controls -->
+            <div class="callouts-toggle">
+                <button class="toggle-btn active" data-view="popular">Most Loved</button>
+                <button class="toggle-btn" data-view="recent">Most Recent</button>
+                <button class="toggle-btn" data-view="all">All</button>
+            </div>
+            
             <div class="callouts-grid" id="calloutsGrid">
-                <!-- Callouts will be loaded here -->
+                <!-- Callouts will be dynamically inserted here -->
             </div>
         </div>
     </section>
-
-    <!-- Recent Callouts Section -->
-    <section id="recent" class="recent-section">
-        <div class="container">
-            <h2>Top 5 Most Recent</h2>
-            <div class="callouts-list" id="recentCallouts">
-                <!-- Recent callouts will be loaded here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Popular Callouts Section -->
-    <section id="popular" class="popular-section">
-        <div class="container">
-            <h2>Top 5 Most Viewed</h2>
-            <div class="callouts-list" id="popularCallouts">
-                <!-- Popular callouts will be loaded here -->
-            </div>
-        </div>
-    </section>
+    
+    <!-- Hidden sections for navigation compatibility -->
+    <section id="recent" style="display: none;"></section>
+    <section id="popular" style="display: none;"></section>
 
     <!-- FAQ Section -->
     <section id="faq" class="faq-section">
@@ -353,40 +344,55 @@
     <section id="about" class="about-section">
         <div class="container">
             <h2>About Acton Character Callouts</h2>
+            
+            <div class="about-mission">
+                <h3>Mission</h3>
+                <p>Our mission is to equip heroes to call out character, connect communities through encouragement, and inspire a culture where virtues shine brighter every day. Every Character Callout is a reminder that what we do matters, who we are matters, and together we are daring to be great.</p>
+            </div>
+
             <div class="about-content">
                 <div class="about-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    
-                    <h3>Our Mission</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    
                     <h3>How It Works</h3>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
-                    
-                    <h3>Why Character-Callouts Matter</h3>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                    <ol>
+                        <li><strong>Name the Hero</strong> — Anyone can give a Character Callout by recognizing a peer, parent, or guide for living out the virtues of a hero's journey.</li>
+                        <li><strong>Choose the Traits</strong> — Select words that capture the gifts being practiced: grit, kindness, curiosity, courage, and more.</li>
+                        <li><strong>Celebrate & Connect</strong> — Callouts are shared and celebrated in schools and communities, fueling a cycle of encouragement that equips others to do the same.</li>
+                    </ol>
                 </div>
                 
                 <div class="about-stats">
                     <div class="stat-item">
-                        <h3>1,000+</h3>
-                        <p>Character-Callouts Submitted</p>
+                        <i class="fas fa-school"></i>
+                        <h3>300+</h3>
+                        <p>Actons all around the world</p>
                     </div>
                     <div class="stat-item">
-                        <h3>500+</h3>
-                        <p>Students Participating</p>
+                        <i class="fas fa-trophy"></i>
+                        <h3>150,000+</h3>
+                        <p>Character Callouts given each year</p>
                     </div>
                     <div class="stat-item">
-                        <h3>50+</h3>
-                        <p>Schools Using Our Platform</p>
+                        <i class="fas fa-users"></i>
+                        <h3>5,000+</h3>
+                        <p>Heroes Participating</p>
                     </div>
                     <div class="stat-item">
+                        <i class="fas fa-heart"></i>
                         <h3>100%</h3>
                         <p>Positive Impact</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="about-stats-text">
+                <p>Across 300+ schools, more than 150,000 Character Callouts are given each year — with 5,000+ heroes participating and building a legacy of recognition.</p>
+            </div>
+
+            <div class="about-why">
+                <h3>Why It Matters</h3>
+                <p>When we equip young people to see and name virtue, they begin to embody it. When we connect recognition to real choices and habits, character is forged. And when we inspire heroes to call out the best in one another, communities grow stronger.</p>
+                
+                <p>That's why schools using Character Callouts report a 100% positive impact. It's not about rescuing victims — it's about raising heroes who do hard things, lift others up, and change the world.</p>
             </div>
         </div>
     </section>
@@ -396,7 +402,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Acton Character Callouts</h3>
+                    <h3>Acton Fort Lauderdale</h3>
                     <p>Celebrating the amazing people in our lives, one callout at a time.</p>
                 </div>
                 <div class="footer-section">
